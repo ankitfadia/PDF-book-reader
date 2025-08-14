@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Viewer</title>
+
+  <!-- External Styles -->
+  <link rel="stylesheet" href="assest/css/viewer.min.css" />
+  <link rel="stylesheet" href="assest/css/style.css" />
+
+  <!-- External Scripts -->
+  <script src="assest/js/pdf.min.js"></script>
+  <script src="assest/js/jquery.min.js"></script>
+</head>
+<body class="pdf-page">
+
+  <!-- Header Section -->
+  <div class="section header-section sticky">
+    <div class="section-inner">
+      <div class="col-parent">
+        
+        <!-- Book Header -->
+        <div class="column bookHeader"></div>
+
+        <!-- Toolbar -->
+        <div class="column">
+          <div id="toolbar">
+            
+            <!-- Search Popup -->
+            <div id="search-popup" style="display: none;">
+              <div class="search-popup-inner">
+                <div class="search-input">
+                  <input type="text" id="search-input" placeholder="Search text..." />
+                  <span id="spinner" class="loader" style="display: none;"></span>
+                </div>
+                <button id="search-result">Search</button>
+                <button id="prev-result">Previous</button>
+                <button id="next-result">Next</button>
+                <span id="results-info"></span>
+              </div>
+            </div>
+
+            <!-- Search Button -->
+            <button id="search-icon" class="toolbarBTN" title="Search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                   viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   class="feather feather-search">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+
+            <!-- Zoom Controls -->
+            <div style="display: flex; gap: 10px;">
+              <div class="toolbarBTN">
+                <button id="zoom-in" title="Zoom In" class="toolbarBTN">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                       viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       class="feather feather-zoom-in">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+
+                <span class="divider_line"></span>
+
+                <button id="zoom-out" title="Zoom Out" class="toolbarBTN">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                       viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                       class="feather feather-zoom-out">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Fullscreen -->
+              <button class="toolbarBTN" id="full-screen" title="Full Screen">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-maximize">
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <polyline points="9 21 3 21 3 15"></polyline>
+                  <line x1="21" y1="3" x2="14" y2="10"></line>
+                  <line x1="3" y1="21" x2="10" y2="14"></line>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Notes & Comments -->
+            <div style="display: flex; gap: 10px;">
+              <button class="toolbarBTN" id="my-notes" title="Content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-list">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3" y2="6"></line>
+                  <line x1="3" y1="12" x2="3" y2="12"></line>
+                  <line x1="3" y1="18" x2="3" y2="18"></line>
+                </svg>
+              </button>
+
+              <button class="toolbarBTN" id="show-comment" title="Notes">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-file">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Containers -->
+            <div id="comments-container" style="display: none;"></div>
+            <div id="toc-container" style="display: none;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF Viewer -->
+  <div class="pdf-outer">
+    <div id="pdf-container">
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <div class="controls">
+      <button id="prev-page" class="arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+             viewBox="0 0 20 20" fill="none">
+          <path d="M13.41 14.59L8.83 10L13.41 5.41L12 4L6 10L12 16L13.41 14.59Z" fill="#4E8D98"/>
+        </svg>
+      </button>
+
+      <span id="page-numbers" class="page-numbers pdfNavigation"></span>
+
+      <button id="next-page" class="arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+             viewBox="0 0 20 20" fill="none">
+          <path d="M6.99991 14.59L11.5799 10L6.99991 5.41L8.40991 4L14.4099 10L8.40991 16L6.99991 14.59Z" fill="#4E8D98"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Edit Notes Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h6>Modify comment</h6>
+      <p id="highlightedText"></p>
+      <textarea id="editCommentText"></textarea>
+      <div class="modal-actions">
+        <button id="cancelEdit">Cancel</button>
+        <button id="updateComment">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Viewer Script -->
+  <script src="assest/js/viewer.js"></script>
+</body>
+</html>
