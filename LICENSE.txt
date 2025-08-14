@@ -1,0 +1,25 @@
+Copyright (c) 2025 Ankit Kumar
+
+Permission is hereby granted to use, view, and modify this software **for personal and non-commercial purposes only**, subject to the following conditions:
+
+1. **Attribution Required**  
+   You must give appropriate credit to the original author (Ankit Kumar) in the project or source files.
+
+2. **No Commercial Use**  
+   You may NOT sell, sublicense, or commercially distribute this software or any modified versions of it.
+
+3. **No Unauthorized Modifications or Forking**  
+   Modifications are allowed only by approved collaborators.  
+   If you wish to modify or improve this project publicly (e.g., via a pull request or fork), you must first request permission from the author.
+
+4. **No Warranty**  
+   This software is provided "as is", without any express or implied warranty.  
+   In no event shall the author be held liable for any damages arising from the use of this software, including but not limited to loss of data, profits, or business interruption.
+
+5. **No Endorsement**  
+   You may not use the author’s name or project branding to promote derivative works without written permission.
+
+---
+
+For questions or collaboration requests, contact the author via GitHub or email.
+ 

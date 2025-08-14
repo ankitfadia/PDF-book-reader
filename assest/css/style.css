@@ -1,0 +1,716 @@
+
+/*=======Global CSS==========*/
+
+*{margin:0;padding:0;box-sizing:border-box}
+h1{
+	font-size:56px;
+	font-family: "Nueva Std";
+	font-weight: 400;
+	color:#2A2A2A;
+
+}
+
+h2{
+	color: #2A2A2A;	
+	font-family: "Nueva Std";
+	font-size: 40px; 
+	font-weight: 400; 
+	margin-bottom:0;
+
+}
+
+h3{
+	color: #2A2A2A;	 
+	font-family: "Nueva Std";
+	font-size: 32px; 
+	font-weight: 400; 
+}
+p{
+	color: #373737;	
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+input{
+	width:100%;
+	height: 55px;
+	padding: 20px;
+	border-radius: 10px;
+	border: 1px solid #E3E3E3;
+}
+
+body{
+	background-repeat:no-repeat;
+	background-size:cover;
+
+}
+body.pdf-page {
+  background-image: url(../../images/bg-new.jpg);
+  padding-bottom:50px;
+  }
+.section-inner{
+	 width:100%;
+	 max-width:1340px;	 
+	 margin: 0 auto;
+
+ }
+
+@keyframes criss-cross-right{
+0% {
+    right: -20px;
+}
+
+50% {
+    right: 50%;
+    width: 20px;
+    height: 20px;
+}
+100% {
+    right: 50%;
+    width: 150%;
+    height: 150%;
+}
+}
+@keyframes criss-cross-left{
+0% {
+    left: -20px;
+}
+
+50% {
+    left: 50%;
+    width: 20px;
+    height: 20px;
+}
+100% {
+    left: 50%;
+    width: 150%;
+    height: 150%;
+}
+}
+
+a:hover {
+    background-size: 100% 1px;
+}
+a{
+    background: linear-gradient(currentcolor, currentcolor);
+    background-size: 0 1px;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    transition: background .6s;
+	
+	}
+
+/*=======End Global CSS==========*/
+
+
+.header-section{
+	padding:5px 0;
+	border-bottom: 1px solid #E3E3E3;
+
+}
+
+.header-section .column{
+	padding:0 10px;
+
+}
+
+
+/*=======Mobile CSS==========*/
+
+@media only screen and (max-width:1024px){
+
+.ctacntnt> h2 {
+
+    max-width: 100%;
+
+}	
+
+.grid-view {    
+
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+}
+
+@media only screen and (max-width:767px){
+
+
+h1{
+	font-size: 32px;
+
+}	
+
+h2{
+	font-size: 28px;
+
+}
+
+
+
+
+
+.header-section .col-parent{
+	display: grid;
+    grid-template-columns: 100px 1fr 65px;
+
+}
+
+
+.col-parent {
+
+    display:block;
+
+}
+
+}
+
+
+/*=======End Mobile CSS==========*/
+
+
+#pdf-container canvas {
+    width: auto;
+}
+.comment-box{   
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 4px 10px 50px 0px rgba(0, 0, 0, 0.12);
+    padding: 24px 16px;
+}
+
+
+.pdf-outer{
+  width:100%;
+/*  text-align:center;*/
+}  
+    #pdf-container {
+      position: relative;
+      margin: 30px auto;
+      width: 918px;  
+    }
+ #pdf-container canvas{width: inherit}
+    #the-canvas {
+      border: 1px solid black;
+      display: block;
+    }
+    
+    #toolbar {
+      grid-gap: 12px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      padding: 16px 0;
+	  justify-content:space-between;
+	  width:100%;
+        }
+#toolbar button{cursor:pointer}   
+#comments-container {
+  box-shadow: -3px 19px 50px 0px rgba(0, 0, 0, 0.12);
+    padding: 24px 16px;
+    height: calc(100% - 83px);
+    bottom: 0;    
+    display: none;  
+    position: fixed;     
+    right: 0;  
+    width: 28%; 
+    border-radius: 8px 0px 0px 8px; 
+    background-color: #fff; 
+    z-index: 1000;
+    overflow-y: auto;    
+    box-sizing: border-box;
+      
+}
+
+#comments-container .comment-item {
+    border-radius: 10px;
+    background: #F7F7F7;
+    margin-bottom: 10px;
+    padding: 10px 16px;
+    position: relative;
+}
+#comments-container .comment-item h3 {
+    font-size: 16px;
+    color: #373737;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 400; 
+    margin: 0;
+    border-radius: 3px;
+    text-align: left;
+}
+
+#comments-container .comment-item p {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left:8px;
+    text-align: left;
+}
+
+.toolbarBTN{
+  border-radius: 6px;
+  border: 1px solid #E3E3E3;
+  background: #FFF;
+  padding: 8px 10px;
+  display: flex;
+    align-items: center;
+    grid-gap: 8px;
+  color: #373737;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+  height: 40px;
+}
+.toolbarBTN i{color:#4e8d98}
+.toolbarBTN:hover{background: #d7f1d4;}
+
+.toolbarBTN button{  
+    background-color: transparent!important;
+    border: 0;
+}
+.divider_line{
+  width: 1px;
+  height: 24px;
+  background: #E3E3E3;
+}
+.searchIcon{ 
+    background-color: transparent;
+    border: 0;
+  }
+.annotation{opacity:0.2}
+.textLayer
+{   
+    overflow: visible;
+    opacity:1; 
+}
+.textLayer ::selection{color: #fff;}
+.popup-box  {
+  padding: 10px 16px!important;
+  border-radius: 8px!important;
+  background:#FFF!important;
+  box-shadow: 4px 10px 50px 0px rgba(0, 0, 0, 0.12)!important;
+    }
+
+#toc-container {
+    box-shadow: -3px 19px 50px 0px rgba(0, 0, 0, 0.12);
+    padding: 24px 16px;
+    height: calc(100% - 83px);
+    bottom: 0;    
+    display: none;  
+    position: fixed;     
+    right: 0;  
+    width: 28%; 
+    border-radius: 8px 0px 0px 8px; 
+    background-color: #fff; 
+    z-index: 1000;
+    overflow-y: auto;    
+    box-sizing: border-box;
+}
+
+.toc-entry {
+    margin-bottom: 0px;
+    border-radius: 10px;
+    background: #F7F7F7;
+    padding: 0px 10px;
+   text-align: left;
+}
+
+.toc-entry a {
+    text-decoration: none;
+    color: #2A2A2A;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.26px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 7px 0px;
+    display: inline-block;
+}
+
+#toc-container h6{
+  color: #000;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.26px;
+    text-transform: uppercase;
+  text-align: left;
+    margin-bottom: 16px;
+}
+
+#toc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.toc-content>.toc-entry{margin-bottom: 16px;padding: 10px 10px;}
+#toc-header h6 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    font-family: Inter;
+    font-weight: 500;
+}
+
+#toc-close-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.comment-box{   
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 4px 10px 50px 0px rgba(0, 0, 0, 0.12);
+    padding: 24px 16px;
+    z-index: 3;
+    width: 100%;
+    max-width: 439px;
+}
+.comment-box textarea{  
+    width: 100%;
+    height: 140px;
+    border-radius: 10px;
+    border: 1px solid #373737;
+    margin-bottom: 16px;
+    padding: 20px;
+    color: #373737;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 400;
+}
+.comment-box button{
+    color: #4E8D98;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: transparent;
+    border: 0;  
+    cursor:pointer;
+}
+.comment-box button.cancel-comment{
+    font-weight: 400;
+    color: rgba(23, 23, 23, 0.55);
+    margin-right: 16px;
+}
+.comment-box h6{
+    color: #000;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.26px;
+    text-transform: uppercase;
+}
+.comment-box p{
+    color:#373737;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 400;
+    border-left: 3px solid #EAE190;
+    padding-left:8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.comment-box .btnAlign{text-align:right;}
+.delete-icon
+{
+    cursor: pointer;
+    float: right;
+  }
+  .edit-icon
+{
+    cursor: pointer;
+
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+}
+.modal.show {
+    display: block;
+}
+.notsIcons{  
+    display: flex;
+    grid-gap: 8px;
+    justify-content: end;
+}
+/*#pdf-container>div{text-align:center}*/
+.notsIcons span{  
+    border-radius: 4px;
+    background: #FFF;
+    display: flex;
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+}
+.commPage{
+    border-left: 3px solid #EAE190;
+    padding-left: 12px;
+    margin-bottom:16px;
+    width: 100%;
+    display: block;
+    }
+.commPage a{
+    color: #373737;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.7;
+/*    text-decoration: none;*/
+}   
+#editModal {
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 4px 10px 50px 0px rgba(0, 0, 0, 0.12);
+    padding: 24px 16px;
+    z-index: 2;
+    width: 100%;
+    max-width: 439px;
+}
+
+#editModal h6 {
+    color: #000;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.26px;
+    text-transform: uppercase;
+}   
+#editModal textarea {
+    width: 100%;
+    height: 140px;
+    border-radius: 10px;
+    border: 1px solid #373737;
+    margin-bottom: 16px;
+    padding: 20px;
+    color: #373737;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 400;
+}
+#editModal .modal-actions {
+    text-align: right;
+        justify-content: flex-end;
+}
+
+
+#editModal button#cancelEdit {
+    font-weight: 400;
+    color: rgba(23, 23, 23, 0.55);
+    margin-right: 16px;
+}
+
+#editModal button {
+    color: #4E8D98;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+#editModal .modal-content {
+    border-radius: 0!important;
+    box-shadow: none!important;
+    padding: 0!important;
+}   
+.arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  border: 1px solid #e3e3e3;
+}
+.arrow#prev-page {
+  left: calc((100vw - 1340px) / 2);
+}
+
+.arrow#next-page {
+  right:calc((100vw - 1340px) / 2);
+}
+.editIcon{
+    border-left: 1px solid #E3E3E3;
+    padding-left: 16px;
+    margin-left: 6px;
+    position: relative !important;
+    white-space: normal !important;
+    }
+.editIcon svg   {  
+     width: 24px;
+    height: 24px;
+    margin-top: 2px;
+    cursor: pointer;
+    }
+.pdfNavigation{
+    color: #373737 ; 
+    font-family: Inter;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 400;
+    display:block;
+    width:100%;
+    margin-bottom:16px;
+    text-align:center;
+ }
+ .sticky{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: cadetblue;
+}
+
+.pdf-outer .fa-list:before{
+    content:"";
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><g clip-path="url(%23clip0_146_5750)"><path d="M1.70345 3.58319C1.70345 2.71263 1.70482 2.11709 1.773 1.67023C1.83788 1.24506 1.95363 1.02678 2.13534 0.866675C2.32621 0.698496 2.60122 0.58538 3.11622 0.52437C3.63986 0.462338 4.33191 0.461505 5.31424 0.461505H6.68567C7.66799 0.461505 8.36004 0.462338 8.88368 0.52437C9.39869 0.58538 9.6737 0.698496 9.86456 0.866675C10.0463 1.02678 10.162 1.24506 10.2269 1.67023C10.2951 2.11709 10.2965 2.71263 10.2965 3.58319V8.41676C10.2965 9.28731 10.2951 9.88285 10.2269 10.3297C10.162 10.7549 10.0463 10.9732 9.86457 11.1333C9.6737 11.3014 9.39869 11.4146 8.88368 11.4756C8.36004 11.5376 7.66799 11.5384 6.68567 11.5384H5.31424C4.33191 11.5384 3.63986 11.5376 3.11622 11.4756C2.60122 11.4146 2.32621 11.3014 2.13534 11.1333C1.95363 10.9732 1.83788 10.7549 1.773 10.3297C1.70482 9.88285 1.70345 9.28731 1.70345 8.41676V3.58319Z" fill="%234E8D98" stroke="%234E8D98" stroke-width="1.00699"/><path d="M4.08691 5.93262H7.71209" stroke="white" stroke-width="1.00699" stroke-linecap="round"/><path d="M4.08691 3.51611H7.71209" stroke="white" stroke-width="1.00699" stroke-linecap="round"/><path d="M4.08691 8.3501H5.8995" stroke="white" stroke-width="1.00699" stroke-linecap="round"/></g><defs><clipPath id="clip0_146_5750"><rect width="12" height="12" fill="white"/></clipPath></defs></svg>');
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    opacity: 1;
+    z-index: 2;
+    right: -5px;
+    top: -5px;
+}
+
+#search-popup{   
+    position: absolute;
+    top: 75px;
+    left: 30px;
+    width: 50%;
+}
+.search-popup-inner{
+    display:flex;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    grid-gap: 0px 5px;
+    flex-wrap:wrap;
+    box-shadow: 0px 7px 19px 0px rgba(0, 0, 0, 0.12);
+}
+.search-popup-inner button{  
+    width: 80px;
+    border-radius: 10px;
+    border: 0;
+    background-color: #000;
+    color: #fff;
+}
+.search-popup-inner .search-input{
+    width: calc(100% - 255px);
+        position: relative;
+}
+.search-popup-inner #search-input{  
+    height: 40px;
+    padding: 10px;
+}
+.search-popup-inner #results-info{ 
+    width: 100%;
+    text-align: left;
+    margin-top: 8px;
+}
+.search-popup-inner #results-info:empty{display:none}
+
+.loader {
+    border: 2px solid #ebebeb;
+    border-top: 2px solid #555;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.pdf-page .col-parent{position:relative}
+@media (max-width: 767px){
+    #search-popup{    width: 100%;}
+}
+
+.caret-icon
+{
+    position: absolute;
+    top: 31px;
+    left: 78px;
+    transform: rotate(270deg);
+}
+
+.page-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.page-numbers button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #c6e1f2;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.page-numbers button:hover{ 
+    background-color: #4E8D98;
+    color: white;
+	}
+.page-numbers button.active {
+    background-color: #4E8D98;
+    color: white;
+    font-weight: bold;
+}
+
+.editIcon2 i,
+.editIcon i{
+	color:#4e8d98;
+	font-size:20px;
+	cursor:pointer
+}
